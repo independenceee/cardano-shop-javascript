@@ -6,13 +6,12 @@ import ConnectButton from "./ConnectButton";
 import Modal from "../components/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import modalActions from "../store/modal-slice";
-import { ShopContext } from "../contexts/ShopContext";
-
+import { WalletContext } from "../contexts/WalletContext";
 
 const styles = {};
 
 const Header = function () {
-    const { connected } = useContext(ShopContext);
+    const { connected } = useContext(WalletContext);
     const router = useRouter();
 
     const showModal = useSelector(function (state) {

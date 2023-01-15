@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Wallet from "./Wallet";
 import { useWalletList } from "@martifylabs/mesh-react";
-import { ShopContext } from "../contexts/ShopContext";
+import { WalletContext } from "../contexts/WalletContext";
 
 const styles = {
     wrapper: `fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center`,
 };
 const Modal = function ({ showModal, hiddenModal }) {
     const wallets = useWalletList();
-    const { connectWallet } = useContext(ShopContext);
+    const { connectWallet } = useContext(WalletContext);
 
     return (
         <div className={styles.wrapper}>

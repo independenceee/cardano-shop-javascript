@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <MeshProvider>
             <Provider store={store}>
                 <ContextProvider>
-                    <Meta />
+                    <Meta title="Cardano Shop" />
                     <Header />
                     <Component {...pageProps} />
                     <Footer />
