@@ -8,7 +8,9 @@ import { useSelector, useDispatch } from "react-redux";
 import modalActions from "../store/modal-slice";
 import { WalletContext } from "../contexts/WalletContext";
 
-const styles = {};
+const styles = {
+    container: `h-[60px] fixed top-0 left-0 flex items-center justify-between w-full z-20 bg-[#ffffff] border-b-2 border-b-[rgb(207, 207, 207)] px-[16px] py-[8px]`,
+};
 
 const Header = function () {
     const { connected } = useContext(WalletContext);
@@ -40,7 +42,7 @@ const Header = function () {
     };
 
     return (
-        <header className="h-[60px] fixed top-0 left-0 flex items-center justify-between w-full z-20 bg-[#ffffff] border-b-2 border-b-[rgb(207, 207, 207)] px-[16px] py-[8px]">
+        <header className={styles.container}>
             <a className="flex items-center " href="/">
                 <img
                     className="w-[40px] h-[40px]"

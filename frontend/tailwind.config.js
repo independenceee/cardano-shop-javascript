@@ -17,6 +17,10 @@ module.exports = {
             boxShadow: {
                 product: "0 0 13px 0 #00000040",
             },
+
+            gridTemplateColumns: {
+                cart: '2fr 1fr'
+            }
         },
     },
     plugins: [],
