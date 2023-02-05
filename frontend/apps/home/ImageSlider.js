@@ -1,31 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import axios from "axios";
 import ImageSliders from "./ImageSliders";
-
-const datas = [
-    {
-        id: 1,
-        url: "https://shop.cardano2vn.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBanner1.bfee48c0.jpeg&w=3840&q=75",
-    },
-    {
-        id: 2,
-        url: "https://shop.cardano2vn.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBanner4.e619d7ee.jpg&w=3840&q=75",
-    },
-    {
-        id: 2,
-        url: "https://shop.cardano2vn.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBanner3.460fa765.jpg&w=3840&q=75",
-    },
-    {
-        id: 2,
-        url: "https://shop.cardano2vn.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBanner2.1e467930.jpg&w=3840&q=75",
-    },
-    {
-        id: 2,
-        url: "https://shop.cardano2vn.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FBanner1.bfee48c0.jpeg&w=3840&q=75",
-    },
-];
 
 const ImageSlider = function () {
     let setting = {
@@ -36,9 +14,26 @@ const ImageSlider = function () {
         slidesToScroll: 1,
         autoplay: true,
     };
+
+    const [slider, setSlider] = useState([]);
+
+    useEffect(() => {
+        const fetchAllSlider = async function () {
+            try {
+                const dataslider = await axios.get(
+                    "http://localhost:5000/api/sliders",
+                );
+                setSlider(dataslider.data.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchAllSlider();
+    }, []);
+
     return (
         <Slider {...setting}>
-            {datas.map((url, index) => (
+            {slider.map((url, index) => (
                 <ImageSliders key={url.id} url={url.url} />
             ))}
         </Slider>
