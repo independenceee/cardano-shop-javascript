@@ -34,10 +34,15 @@ const Product = function ({ id, price, title, image }) {
             console.log(error);
         }
     };
+
+    const handleRouter = function (id) {
+        router.push(`/product/${id}`);
+    };
     return (
         <div
-        
-        className="w-[auto] h-[473.9px] flex flex-col overflow-hidden bg-[#ffffff] cursor-pointer border-[2px] border-transparent py-[20px] px-[10px] rounded-[12px] transition-all shadow-product hover:border-[2px] hover:border-blue-400 hover:border-solid hover:transition hover:duration-500">
+            onClick={() => {handleRouter(id)}}
+            className="w-[auto] h-[473.9px] flex flex-col overflow-hidden bg-[#ffffff] cursor-pointer border-[2px] border-transparent py-[20px] px-[10px] rounded-[12px] transition-all shadow-product hover:border-[2px] hover:border-blue-400 hover:border-solid hover:transition hover:duration-500"
+        >
             <div className="">
                 <span className="flex items-center justify-center">
                     <img
